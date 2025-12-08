@@ -50,12 +50,12 @@ export default class Player extends GameObject {
         ctx.fillRect(this.x, this.y, this.width, this.height)
 
         // Rita ögon
-        ctx.fillStyle = 'white'
+        ctx.fillStyle = 'black'
         ctx.fillRect(this.x + this.width * 0.2, this.y + this.height * 0.2, this.width * 0.2, this.height * 0.2)
         ctx.fillRect(this.x + this.width * 0.6, this.y + this.height * 0.2, this.width * 0.2, this.height * 0.2)
         
         // Rita pupiller
-        ctx.fillStyle = 'black'
+        ctx.fillStyle = 'white'
         ctx.fillRect(
             this.x + this.width * 0.25 + this.directionX * this.width * 0.05, 
             this.y + this.height * 0.25 + this.directionY * this.width * 0.05, 
