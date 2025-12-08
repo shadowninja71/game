@@ -13,7 +13,8 @@ export default class Game {
 
         // Skapa alla objekt i spelet
         this.gameObjects = [
-            new Rectangle(this, 200, 150, 50, 50, 'red')
+            new Rectangle(this, 200, 150, 50, 50, 'red'),
+            new Rectangle(this, 500, 20 0, 100, 100, 'blue')
         ]
 
         // Sätt starthastighet (pixlar per millisekund)
