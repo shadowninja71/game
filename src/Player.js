@@ -16,15 +16,38 @@ export default class Player extends GameObject {
 
         // Fysik egenskaper
         this.jumpPower = -0.6 // negativ hastighet för att hoppa uppåt
-        this.isGrounded = false // om spelaren står på marken
+        this.isGrounded = false // om spelaren står på marken  
+
+        // Dash egenskaper
+        this.dashSpeed = 1.0 // hastighet under dash
+        this.dashDuration = 200 // varaktighet av dash i millisekunder
+        this.hasDashed = false // om spelaren har dashat
+        this.dashTimer = 0 // timer för dash varaktighet
+        this.facingDirection = 1 // 1 för höger, -1 för vänster
     }
 
     update(deltaTime) {
+
+        // Dash, update() i Player.js samt egenskaper i konstruktorn
+        if (this.game.inputHandler.keys.has('Shift') && !this.hasDashed) {
+            this.velocityX = this.facingDirection * this.dashSpeed // dashSpeed är en ny egenskap
+            this.hasDashed = true // ny egenskap
+            this.dashTimer = this.dashDuration // dashDuration är en ny egenskap
+        }
+        // Om spelaren har dashat, uppdatera dash-timer
+        if (this.hasDashed) {
+            this.dashTimer -= deltaTime
+            if (this.dashTimer <= 0) {
+                this.hasDashed = false
+                this.x.velocityX = 0 // stoppa dash rörelsen
+            }
+        } 
+
         // Horisontell rörelse
-        if (this.game.inputHandler.keys.has('ArrowLeft')) {
+        if (this.game.inputHandler.keys.has('a')) {
             this.velocityX = -this.moveSpeed
             this.directionX = -1
-        } else if (this.game.inputHandler.keys.has('ArrowRight')) {
+        } else if (this.game.inputHandler.keys.has('d')) {
             this.velocityX = this.moveSpeed
             this.directionX = 1
         } else {
@@ -32,7 +55,7 @@ export default class Player extends GameObject {
             this.directionX = 0
         }
 
-        // Hopp - endast om spelaren är på marken
+        // Hopp - med dubbelhopp
         if (this.game.inputHandler.keys.has(' ') && this.isGrounded) {
             this.velocityY = this.jumpPower
             this.isGrounded = false
