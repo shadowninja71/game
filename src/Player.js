@@ -10,7 +10,7 @@ export default class Player extends GameObject {
         this.velocityY = 0
 
         // Rörelsehastighet (hur snabbt spelaren accelererar/rör sig)
-        this.moveSpeed = 0.3
+        this.moveSpeed = 0.4
         this.directionX = 0
         this.directionY = 0
 
@@ -21,10 +21,10 @@ export default class Player extends GameObject {
 
     update(deltaTime) {
         // Horisontell rörelse
-        if (this.game.inputHandler.keys.has('ArrowLeft')) {
+        if (this.game.inputHandler.keys.has('a')) {
             this.velocityX = -this.moveSpeed
             this.directionX = -1
-        } else if (this.game.inputHandler.keys.has('ArrowRight')) {
+        } else if (this.game.inputHandler.keys.has('d')) {
             this.velocityX = this.moveSpeed
             this.directionX = 1
         } else {
