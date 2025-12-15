@@ -39,7 +39,7 @@ export default class Player extends GameObject {
             this.dashTimer -= deltaTime
             if (this.dashTimer <= 0) {
                 this.hasDashed = false
-                this.x.velocityX = 0 // stoppa dash rörelsen
+                this.velocityX = 0 // stoppa dash rörelsen
             }
         } 
 
