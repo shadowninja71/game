@@ -1,7 +1,7 @@
 import GameObject from './GameObject.js'
 
 export default class Enemy extends GameObject {
-    constructor(game, x, y, width, height, patrolDistance = null) {
+    constructor(game, x, y, width, height, patrolDistance = null, speed = 0.1) {
         super(game, x, y, width, height)
         this.color = 'red' // Röd
         
@@ -14,7 +14,7 @@ export default class Enemy extends GameObject {
         this.startX = x
         this.patrolDistance = patrolDistance
         this.endX = patrolDistance !== null ? x + patrolDistance : null
-        this.speed = 0.1
+        this.speed = speed
         this.direction = 1 // 1 = höger, -1 = vänster
         
         this.damage = 1 // Hur mycket skada fienden gör

@@ -50,9 +50,10 @@ export default class Game {
 
         // Skapa fiender i nivån
         this.enemies = [
-            new Enemy(this, 200, this.height - 220, 40, 40, 80),  // patrol 80px
+            new Enemy(this, 200, this.height - 220, 40, 40, 80, 0.4),  // patrol 80px
             new Enemy(this, 450, this.height - 240, 40, 40),      // ingen patrol, går tills kollision
             new Enemy(this, 360, this.height - 440, 40, 40, 50),  // patrol 50px
+            new Enemy(this, 100, this.height - 350, 30, 40, 70),  // patrol 60px
         ]
 
         // Skapa andra objekt i spelet (valfritt)

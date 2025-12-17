@@ -28,10 +28,10 @@ export default class Player extends GameObject {
 
     update(deltaTime) {
         // Horisontell rörelse
-        if (this.game.inputHandler.keys.has('ArrowLeft')) {
+        if (this.game.inputHandler.keys.has('a')) {
             this.velocityX = -this.moveSpeed
             this.directionX = -1
-        } else if (this.game.inputHandler.keys.has('ArrowRight')) {
+        } else if (this.game.inputHandler.keys.has('d')) {
             this.velocityX = this.moveSpeed
             this.directionX = 1
         } else {
